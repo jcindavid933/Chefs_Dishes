@@ -1,0 +1,67 @@
+@model Dishes
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chefs & Dishes</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="~/css/style.css"/>
+  </head>
+  <body>
+    <div class="container">
+        <h1>Add a Dish!</h1>
+        <a href="/dishes">Home</a><br><br>
+        <form asp-action="Create_dish" asp-controller="Home" method="post">
+            <div class="left_box">
+                <div class="form-group">
+                    <label asp-for="Name">Name of Dish</label>
+                    <input type="text" class="form-control" id="exampleFormControlInput1" asp-for="Name">
+                    <span asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Calories"># of Calories</label>
+                    <input type="number" class="form-control" id="exampleFormControlInput1" asp-for="Calories">
+                    <span asp-validation-for="Calories"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description">Description</label>
+                    <textarea asp-for="Description" class="form-control" id="exampleFormControlTextarea1" rows="7"></textarea>
+                    <span asp-validation-for="Description"></span>
+                </div>
+            </div>
+            <div class="middle_box">
+                <div class="form-group">
+                    <label asp-for="ChefId">Chef</label>
+                    <select asp-for="ChefId" class="form-control" id="exampleFormControlSelect1">
+                        <option selected="true" disabled="disabled">Select</option>
+                        @foreach(Chef chef in @ViewBag.Chefs)
+                        {
+                            <option value="@chef.ChefId">@chef.first_name @chef.last_name</option>
+                        }
+                    </select><br><br>
+                    <span asp-validation-for="ChefId"></span>
+                    <button id="button" type="submit" class="btn btn-primary">Add Dish</button>
+                </div>
+            </div>
+            <div class="right_box">
+                <div class="form-group">
+                    <label asp-for="Tastiness">Tastiness</label>
+                    <select asp-for="Tastiness" class="form-control" id="exampleFormControlSelect1">
+                        <option selected="true" disabled="disabled">Select</option>  
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <span asp-validation-for="Tastiness"></span>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

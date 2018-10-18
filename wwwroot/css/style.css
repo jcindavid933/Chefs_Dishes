@@ -1,0 +1,49 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.container{
+    width: 100%;
+    height: auto;
+}
+h1{
+    text-align: center;
+}
+a{
+    text-decoration: underline;
+}
+.left{
+    display: inline-block;
+    width: 45%;
+    height: auto;
+}
+.right{
+    display: inline-block;
+    width: 45%;
+    height: auto;
+    vertical-align: top;
+    margin-left: 5%;
+}
+.left_box{
+    display: inline-block;
+    width:30%;
+    height: auto;
+}
+.middle_box{
+    display: inline-block;
+    width:30%;
+    height: auto;
+    vertical-align: top;
+    margin-left: 4%;
+}
+.right_box{
+    display: inline-block;
+    width:30%;
+    height: auto;
+    vertical-align: top;
+    margin-left: 4%;
+}
+#button{
+    margin-top: 70%;
+    margin-left: 75%;
+}
